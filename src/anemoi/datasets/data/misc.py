@@ -667,7 +667,7 @@ def initialize_zarr_store(root: Any, big_dataset: Any, recipe: Dict[str, Any]) -
     recipe : Dict[str, Any]
         The recipe for initializing the store.
     """
-    ensembles = big_dataset.shape[1]
+    ensembles = big_dataset.shape[2]  # shape == (ntime, n_vars, n_ensembles, n_gridpoints)
     # Create or append to "dates" dataset.
     if "dates" not in root:
         full_length = len(big_dataset.dates)
